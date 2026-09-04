@@ -18,8 +18,10 @@ This project aims to build an automated machine learning system that can analyze
 The project combines **NLP text preprocessing**, **TF-IDF feature extraction**, and **supervised machine learning** to perform email classification.
 
 ---
+## 🌐 Live Demo
 
-## 🎯 Objectives
+🚀 **Try the application:**  
+[AI Email Spam Detector](https://ai-email-spam-detector-kfqw.onrender.com)
 
 The main objectives of this project are:
 
