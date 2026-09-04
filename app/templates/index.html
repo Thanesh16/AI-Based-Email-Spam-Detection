@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>AI Spam Detector</title>
+
+    <!-- Connect CSS file -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- Main page wrapper -->
+    <div class="page">
+
+        <!-- Main application card -->
+        <div class="card">
+
+
+            <!-- ============================= -->
+            <!-- HEADER SECTION -->
+            <!-- ============================= -->
+
+            <div class="header">
+
+                <div class="icon">
+                    🛡
+                </div>
+
+                <h1>AI Spam Detector</h1>
+
+                <p>
+                    Protect your inbox with AI-powered
+                    email spam detection.
+                </p>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- INFORMATION BADGES -->
+            <!-- ============================= -->
+
+            <div class="badges">
+
+                <span>🤖 Machine Learning</span>
+
+                <span>🧠 NLP</span>
+
+                <span>⚡ Fast Detection</span>
+
+            </div>
+
+
+            <!-- ============================= -->
+            <!-- DETECTION FORM -->
+            <!-- ============================= -->
+
+            <form method="POST"
+                  enctype="multipart/form-data">
+
+
+                <!-- EMAIL TEXT SECTION -->
+
+                <div class="section">
+
+                    <label for="email_text">
+                        Email Content
+                    </label>
+
+                    <p class="helper">
+                        Paste the email message you want to analyze.
+                    </p>
+
+                    <textarea
+                        id="email_text"
+                        name="email_text"
+                        placeholder="Paste your email content here..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+
+                    <span>OR</span>
+
+                </div>
+
+
+                <!-- FILE UPLOAD SECTION -->
+
+                <div class="section">
+
+                    <label for="email_file">
+                        Upload Email File
+                    </label>
+
+                    <p class="helper">
+                        Upload a text file containing the email.
+                    </p>
+
+                    <div class="file-box">
+
+                        <div class="upload-icon">
+                            📄
+                        </div>
+
+                        <p class="upload-title">
+                            Choose an email file
+                        </p>
+
+                        <p class="upload-subtitle">
+                            Supported format: .txt
+                        </p>
+
+                        <input
+                            type="file"
+                            id="email_file"
+                            name="email_file"
+                            accept=".txt"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- DETECT BUTTON -->
+                <!-- ============================= -->
+
+                <button type="submit" class="detect-button">
+
+                    <span>🔍</span>
+
+                    Detect Spam
+
+                </button>
+
+            </form>
+
+
+            <!-- ============================= -->
+            <!-- RESULT SECTION -->
+            <!-- ============================= -->
+
+            {% if result %}
+
+                <div class="result-card
+                    {% if result == 'Spam' %}
+                        spam
+                    {% else %}
+                        ham
+                    {% endif %}">
+
+                    <div class="result-icon">
+
+                        {% if result == 'Spam' %}
+                            ⚠️
+                        {% else %}
+                            ✅
+                        {% endif %}
+
+                    </div>
+
+                    <div class="result-content">
+
+                        <p class="result-label">
+                            Analysis Result
+                        </p>
+
+                        <h2>
+                            {{ result }}
+                        </h2>
+
+                        {% if result == 'Spam' %}
+
+                            <p>
+                                This email appears to be
+                                suspicious or unwanted.
+                            </p>
+
+                        {% else %}
+
+                            <p>
+                                This email appears to be
+                                safe and legitimate.
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- ============================= -->
+            <!-- ERROR MESSAGE -->
+            <!-- ============================= -->
+
+            {% if error %}
+
+                <div class="error-card">
+
+                    <span>⚠️</span>
+
+                    <p>{{ error }}</p>
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- ============================= -->
+            <!-- FOOTER -->
+            <!-- ============================= -->
+
+            <div class="footer">
+
+                <p>
+                    Powered by NLP & Machine Learning
+                </p>
+
+                <p>
+                    AI Spam Detector
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
