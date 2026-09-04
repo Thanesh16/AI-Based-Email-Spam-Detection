@@ -23,6 +23,9 @@ The project combines **NLP text preprocessing**, **TF-IDF feature extraction**, 
 🚀 **Try the application:**  
 [AI Email Spam Detector](https://ai-email-spam-detector-kfqw.onrender.com)
 
+---
+## 📌 Objectives
+
 The main objectives of this project are:
 
 * Detect spam emails automatically.
